@@ -1,0 +1,26 @@
+{
+  "name": "@parithosh/design",
+  "version": "1.0.0",
+  "description": "parithosh's design language: Stone and Pallu themes, generated from one set of tokens.",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:parithosh/design-language-collection",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "site": "node build.mjs --site"
+  },
+  "exports": {
+    "./stone.css": "./dist/css/stone.css",
+    "./pallu.css": "./dist/css/pallu.css",
+    "./tailwind/stone.css": "./dist/tailwind/stone.css",
+    "./tailwind/pallu.css": "./dist/tailwind/pallu.css",
+    "./stone.json": "./dist/json/stone.json",
+    "./pallu.json": "./dist/json/pallu.json",
+    "./pallu-engine": "./lib/pallu.mjs",
+    "./tokens/*": "./tokens/*",
+    "./assets/*": "./assets/*"
+  },
+  "files": ["dist", "assets", "lib", "tokens", "principles"]
+}

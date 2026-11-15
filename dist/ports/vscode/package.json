@@ -1,0 +1,28 @@
+{
+  "name": "stone-theme",
+  "displayName": "Stone",
+  "description": "Weathered stone and patina: a calm light and dark theme.",
+  "version": "1.0.0",
+  "publisher": "parithosh",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Stone Limestone",
+        "uiTheme": "vs",
+        "path": "./themes/stone-light-color-theme.json"
+      },
+      {
+        "label": "Stone Slate",
+        "uiTheme": "vs-dark",
+        "path": "./themes/stone-dark-color-theme.json"
+      }
+    ]
+  }
+}

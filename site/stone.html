@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stone · design language</title>
+  <link rel="stylesheet" href="dist/css/stone.css">
+  <link rel="stylesheet" href="stone-site.css">
+</head>
+<body>
+  <header class="bar">
+    <a class="wordmark" href="./">Stone</a>
+    <nav class="caps">
+      <a href="#color">Colour</a>
+      <a href="#type">Type</a>
+      <a href="#code">Code</a>
+      <a href="#use">Use</a>
+      <a href="pallu.html">Pallu</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <svg class="motif" viewBox="0 0 1200 640" fill="none" stroke="currentColor" aria-hidden="true">
+        <polyline points="80 160 1120 160 1120 64" vector-effect="non-scaling-stroke"/>
+        <circle cx="260" cy="420" r="112" vector-effect="non-scaling-stroke"/>
+        <line x1="700" y1="160" x2="980" y2="600" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div class="hero-text">
+        <p class="caps muted">Limestone and Slate</p>
+        <h1>Weathered stone, patinated copper, and a lot of quiet.</h1>
+        <p class="lede">A calm theme for code and the web: ethlabs.org's hairlines and tracked capitals with Verdigris's muted colours. One <span class="signal">signal red</span> per page.</p>
+        <div class="mode" role="group" aria-label="Mode">
+          <button data-mode-set="auto" aria-pressed="true">Auto</button>
+          <button data-mode-set="light" aria-pressed="false">Light</button>
+          <button data-mode-set="dark" aria-pressed="false">Dark</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="color">
+      <h2 class="caps">Colour</h2>
+      <p class="muted">Click a swatch to copy it. The values follow the mode above.</p>
+      <div class="swatches" id="sw-color"></div>
+      <h3 class="caps sub">Terminal</h3>
+      <div class="swatches ansi" id="sw-ansi"></div>
+      <h3 class="caps sub">Contrast</h3>
+      <p class="muted">Every pair <code>node build.mjs --check</code> verifies for this mode, against WCAG 2.</p>
+      <div class="table-wrap">
+        <table class="contrast"><thead><tr><th>Text</th><th>On</th><th class="num">Ratio</th><th class="num">Min</th><th>Result</th></tr></thead><tbody id="contrast"></tbody></table>
+      </div>
+    </section>
+
+    <section id="type">
+      <h2 class="caps">Type</h2>
+      <div class="specimen">
+        <p class="spec-display">Outfit 600 for headings</p>
+        <p class="spec-body">Outfit 300 and 400 carry the body. Lines stay under 65 characters, with generous leading and space around every block.</p>
+        <p class="caps">Outfit 300, uppercase, tracked 0.1em, for navigation and labels</p>
+        <p class="spec-mono">Commit Mono for code, paths and terminals: 0O 1lI {}[] =&gt; !=</p>
+      </div>
+    </section>
+
+    <section id="components">
+      <h2 class="caps">Pieces</h2>
+      <div class="pieces">
+        <article class="piece">
+          <p class="caps muted">Note · 15 Nov 2026</p>
+          <h3>Hairlines instead of boxes</h3>
+          <p>Sections are separated by a rule, not a card. A surface is reserved for things that are objects: a window, a code pane, a menu. <a href="#use">Links are patina.</a></p>
+        </article>
+        <form class="piece form" onsubmit="return false">
+          <label>Email <input type="email" placeholder="you@example.com"></label>
+          <div class="row">
+            <button class="btn primary">Subscribe</button>
+            <button class="btn">Later</button>
+          </div>
+          <p class="hint"><span class="status ok">●</span> Saved <span class="status warn">●</span> Draft <span class="status err">●</span> Failed</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="code">
+      <h2 class="caps">Code</h2>
+      <div class="pane">
+        <div class="pane-head"><span class="dots"><i></i><i></i><i></i></span><span>contrast.ts</span></div>
+<pre class="code"><span class="t-keyword">import</span> <span class="t-punctuation">{</span> z <span class="t-punctuation">}</span> <span class="t-keyword">from</span> <span class="t-string">"zod"</span><span class="t-punctuation">;</span>
+
+<span class="t-comment">/** Relative luminance of an sRGB colour, per WCAG 2. */</span>
+<span class="t-keyword">export function</span> <span class="t-function">luminance</span><span class="t-punctuation">(</span>hex<span class="t-punctuation">:</span> <span class="t-type">string</span><span class="t-punctuation">):</span> <span class="t-type">number</span> <span class="t-punctuation">{</span>
+  <span class="t-keyword">const</span> <span class="t-punctuation">[</span>r<span class="t-punctuation">,</span> g<span class="t-punctuation">,</span> b<span class="t-punctuation">]</span> = <span class="t-punctuation">[</span><span class="t-number">1</span><span class="t-punctuation">,</span> <span class="t-number">3</span><span class="t-punctuation">,</span> <span class="t-number">5</span><span class="t-punctuation">].</span><span class="t-function">map</span><span class="t-punctuation">((</span>i<span class="t-punctuation">)</span> =&gt; <span class="t-punctuation">{</span>
+    <span class="t-keyword">const</span> c = <span class="t-function">parseInt</span><span class="t-punctuation">(</span>hex<span class="t-punctuation">.</span><span class="t-function">slice</span><span class="t-punctuation">(</span>i<span class="t-punctuation">,</span> i + <span class="t-number">2</span><span class="t-punctuation">),</span> <span class="t-number">16</span><span class="t-punctuation">)</span> / <span class="t-number">255</span><span class="t-punctuation">;</span>
+    <span class="t-keyword">return</span> c &lt;= <span class="t-number">0.03928</span> ? c / <span class="t-number">12.92</span> : <span class="t-punctuation">((</span>c + <span class="t-number">0.055</span><span class="t-punctuation">)</span> / <span class="t-number">1.055</span><span class="t-punctuation">)</span> ** <span class="t-number">2.4</span><span class="t-punctuation">;</span>
+  <span class="t-punctuation">});</span>
+  <span class="t-keyword">return</span> <span class="t-number">0.2126</span> * r + <span class="t-number">0.7152</span> * g + <span class="t-number">0.0722</span> * b<span class="t-punctuation">;</span>
+<span class="t-punctuation">}</span></pre>
+        <div class="term">
+<pre><span class="a6">design</span> on <span class="a5">main</span> ❯ git status -sb
+<span class="a2">##</span> main...<span class="a1">origin/main</span> [ahead 1]
+ <span class="a1">M</span> tokens/stone.json
+<span class="a2">A</span>  dist/ports/zed/stone.json
+
+<span class="a6">design</span> on <span class="a5">main</span> ❯ node build.mjs --check
+ok: generated files are current, contrast pairs pass
+
+<span class="a6">design</span> on <span class="a5">main</span> ❯ <span class="cursor"> </span></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="use">
+      <h2 class="caps">Use</h2>
+      <div class="use">
+        <div>
+          <h3>Web</h3>
+<pre class="snippet" id="snip-link">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/parithosh/design-language-collection@v1/dist/css/stone.css"&gt;</pre>
+          <button class="btn sm" data-copy-from="#snip-link">Copy</button>
+        </div>
+        <div>
+          <h3>Tailwind v4</h3>
+<pre class="snippet" id="snip-tw">@import "tailwindcss";
+@import "@parithosh/design/tailwind/stone.css";</pre>
+          <button class="btn sm" data-copy-from="#snip-tw">Copy</button>
+        </div>
+        <div>
+          <h3>Editors and terminals</h3>
+          <ul class="ports">
+            <li><a href="dist/ports/ghostty/stone-light">Ghostty light</a> · <a href="dist/ports/ghostty/stone-dark">dark</a></li>
+            <li><a href="dist/ports/zed/stone.json">Zed</a></li>
+            <li><a href="dist/ports/nvim/colors/stone.lua">Neovim</a></li>
+            <li><a href="https://github.com/parithosh/design-language-collection/tree/main/dist/ports/vscode">VS Code</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bar foot">
+    <span class="muted">Colours after <a href="https://x.com/mrkaran_">Verdigris by Karan Sharma</a>; structure after <a href="https://ethlabs.org">ethlabs.org</a>.</span>
+    <a class="caps" href="https://github.com/parithosh/design-language-collection">Source</a>
+  </footer>
+
+  <script type="module">
+    import { loadJson, swatches, contrastRows, copyButtons } from "./site.js";
+    copyButtons();
+    const [stone, contrast] = await Promise.all([loadJson("dist/json/stone.json"), loadJson("dist/json/contrast.json")]);
+    const root = document.documentElement;
+    const current = () => root.dataset.mode || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    function render() {
+      const mode = current();
+      swatches(document.getElementById("sw-color"), Object.entries(stone.modes[mode].color));
+      swatches(document.getElementById("sw-ansi"), stone.modes[mode].ansi.map((c, i) => [`ansi ${i}`, c]));
+      contrastRows(document.getElementById("contrast"), contrast.pairs.filter((p) => p.theme === "stone" && p.variant === mode));
+    }
+    for (const btn of document.querySelectorAll("[data-mode-set]")) {
+      btn.addEventListener("click", () => {
+        const m = btn.dataset.modeSet;
+        if (m === "auto") delete root.dataset.mode; else root.dataset.mode = m;
+        document.querySelectorAll("[data-mode-set]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+        render();
+      });
+    }
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+    const initial = new URLSearchParams(location.search).get("mode");
+    if (initial) document.querySelector(`[data-mode-set="${initial}"]`)?.click(); else render();
+  </script>
+</body>
+</html>

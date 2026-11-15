@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design language · parithosh</title>
+  <link rel="stylesheet" href="dist/css/stone.css">
+  <link rel="stylesheet" href="stone-site.css">
+  <style>
+    .split { display: grid; padding: 0; margin-top: var(--space-7); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 0 0 1px var(--line-strong); }
+    .split > div { padding: var(--space-8) var(--space-6); min-height: 300px; background: var(--bg); color: var(--fg); display: grid; justify-items: center; align-content: center; text-align: center; }
+    .split > div { grid-area: 1 / 1; }
+    .split .dark { clip-path: polygon(62% 0, 100% 0, 100% 100%, 42% 100%); }
+    .split h2 { font-size: var(--text-5xl); line-height: 1; margin-bottom: var(--space-3); }
+    .split p { margin: 0; max-width: 32rem; font-size: var(--text-lg); }
+    .split .swrow { display: flex; gap: 6px; margin-top: var(--space-5); }
+    .split .swrow i { width: 34px; height: 10px; border-radius: 2px; }
+    .themes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-7); }
+    .theme-link { display: block; color: inherit; text-decoration: none; border-top: var(--rule-hairline) solid var(--fg); padding-top: var(--space-4); }
+    .theme-link h3 { font-size: var(--text-2xl); margin-bottom: var(--space-2); }
+    .theme-link:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+    .theme-link p { margin: 0; max-width: var(--measure-prose); }
+    .pallu-strip { height: 14px; margin-bottom: var(--space-3); border-radius: 2px; background-color: #7a0f38;
+      background-image: linear-gradient(135deg, #e6b23c 26%, transparent 26%), linear-gradient(225deg, #e6b23c 26%, transparent 26%);
+      background-size: 14px 14px; }
+    .stone-strip { height: 14px; margin-bottom: var(--space-3); border-radius: 2px; background: linear-gradient(90deg, #f2f3ed 0 50%, #161918 50%); box-shadow: inset 0 0 0 1px var(--line-strong); }
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <a class="wordmark" href="./">Design language</a>
+    <nav class="caps"><a href="stone.html">Stone</a><a href="pallu.html">Pallu</a><a href="https://github.com/parithosh/design-language-collection">Source</a></nav>
+  </header>
+  <main>
+    <section class="split" aria-label="Stone in light and dark">
+      <div data-mode="light">
+        <p class="caps muted">Stone</p>
+        <h2>Calm by default.</h2>
+        <p>Weathered stone and patinated copper, drawn with hairlines.</p>
+        <div class="swrow"><i style="background:var(--ansi-1)"></i><i style="background:var(--ansi-2)"></i><i style="background:var(--ansi-3)"></i><i style="background:var(--ansi-4)"></i><i style="background:var(--ansi-5)"></i><i style="background:var(--ansi-6)"></i></div>
+      </div>
+      <div class="dark" data-mode="dark" aria-hidden="true">
+        <p class="caps muted">Stone</p>
+        <h2>Calm by default.</h2>
+        <p>Weathered stone and patinated copper, drawn with hairlines.</p>
+        <div class="swrow"><i style="background:var(--ansi-1)"></i><i style="background:var(--ansi-2)"></i><i style="background:var(--ansi-3)"></i><i style="background:var(--ansi-4)"></i><i style="background:var(--ansi-5)"></i><i style="background:var(--ansi-6)"></i></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="caps">Two themes, one vocabulary</h2>
+      <p class="muted" style="max-width:var(--measure-prose)">Both themes answer to the same token names (<code>--bg</code>, <code>--fg</code>, <code>--accent</code>, <code>--signal</code> and the rest), so a project changes theme by swapping one stylesheet.</p>
+      <div class="themes">
+        <a class="theme-link" href="stone.html">
+          <div class="stone-strip"></div>
+          <h3>Stone</h3>
+          <p>For code, tools, docs and personal sites. ethlabs.org's structure with Verdigris's colours, in Limestone (light) and Slate (dark). Ships CSS, Tailwind, JSON, and Ghostty, Zed, Neovim and VS Code themes.</p>
+        </a>
+        <a class="theme-link" href="pallu.html">
+          <div class="pallu-strip"></div>
+          <h3>Pallu</h3>
+          <p>For warm, personal projects. The saree-woven identity from piecesoflife: six fabrics, the Loom customizer, and its motifs. Light only.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer class="bar foot">
+    <span class="muted">Every colour here is generated from <code>tokens/</code> and checked for contrast.</span>
+    <a class="caps" href="https://github.com/parithosh/design-language-collection">Source</a>
+  </footer>
+</body>
+</html>

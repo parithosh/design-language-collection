@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pallu · design language</title>
+  <link rel="stylesheet" href="dist/css/pallu.css">
+  <link rel="stylesheet" href="assets/motifs/pallu/motifs.css">
+  <link rel="stylesheet" href="pallu-site.css">
+</head>
+<body>
+  <div id="sprite" aria-hidden="true"></div>
+  <nav class="nav">
+    <a class="nav-brand" href="./"><svg class="nav-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#pl-emblem"></use></svg>Pallu</a>
+    <div class="nav-links">
+      <a href="#fabrics" class="is-active">Fabrics</a>
+      <a href="#loom">The Loom</a>
+      <a href="#motifs">Motifs</a>
+      <a href="#use">Use</a>
+      <a href="stone.html">Stone</a>
+    </div>
+  </nav>
+  <div class="temple" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="mango" aria-hidden="true"></div>
+    <svg class="masthead-emblem" viewBox="0 0 120 120" aria-hidden="true"><use href="#pl-emblem"></use></svg>
+    <p class="eyebrow">Woven &amp; posted</p>
+    <h1>Pallu</h1>
+    <p class="meta">A saree-woven identity · six fabrics · <em>from piecesoflife</em></p>
+  </header>
+  <div class="zari" aria-hidden="true"></div>
+
+  <main class="page">
+    <section id="fabrics" class="card">
+      <p class="eyebrow">Chapter one</p>
+      <h2>Fabrics</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read"><span class="dropcap">E</span>ach fabric is six seed colours; every other token follows from them, so each one feels like the same cloth in a different dye. Pick one to dress this whole page in it.</p>
+      <div class="fabrics" id="fabric-list" role="radiogroup" aria-label="Fabric"></div>
+    </section>
+
+    <section id="loom" class="card">
+      <p class="eyebrow">Chapter two</p>
+      <h2>The Loom</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read">The customizer from piecesoflife's Admin → Appearance. Start from a fabric, then change three colours. Everything else (hover shades, text on colour, borders, the emblem's threads) follows, and the loom quietly fixes any colour that would be hard to read.</p>
+      <div class="loom">
+        <form class="loom-controls" onsubmit="return false">
+          <label class="field">Fabric
+            <select id="loom-fabric"></select>
+          </label>
+          <div class="knob" data-knob="main">
+            <input type="color" id="knob-main" aria-describedby="knob-main-text">
+            <label for="knob-main" id="knob-main-text"><b>Main colour</b><span>Navigation, headings and buttons.</span></label>
+            <button type="button" class="chip-btn" data-reset="main">Use fabric colour</button>
+            <p class="adjusted" role="status" hidden></p>
+          </div>
+          <div class="knob" data-knob="highlight">
+            <input type="color" id="knob-highlight" aria-describedby="knob-highlight-text">
+            <label for="knob-highlight" id="knob-highlight-text"><b>Highlight</b><span>Gold threads, active tabs, the paisley.</span></label>
+            <button type="button" class="chip-btn" data-reset="highlight">Use fabric colour</button>
+            <p class="adjusted" role="status" hidden></p>
+          </div>
+          <div class="knob" data-knob="second">
+            <input type="color" id="knob-second" aria-describedby="knob-second-text">
+            <label for="knob-second" id="knob-second-text"><b>Second colour</b><span>Eyebrow labels and the ledger panel.</span></label>
+            <button type="button" class="chip-btn" data-reset="second">Use fabric colour</button>
+            <p class="adjusted" role="status" hidden></p>
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn--rani" id="loom-copy">Copy CSS</button>
+            <button type="button" class="btn btn--outline" id="loom-apply">Dress this page</button>
+          </div>
+        </form>
+
+        <div class="preview" id="preview" data-fabric="custom">
+          <div id="pv-sprite" aria-hidden="true"></div>
+          <div class="pv-nav"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#pv-emblem"></use></svg><span>The Marigold Circle</span><span class="pv-tab">Issues</span></div>
+          <div class="temple" aria-hidden="true"></div>
+          <div class="pv-mast"><div class="mango" aria-hidden="true"></div><p class="eyebrow">Woven &amp; posted</p><p class="pv-month">June 2026</p></div>
+          <div class="zari" aria-hidden="true"></div>
+          <div class="pv-body">
+            <p class="eyebrow">Question one</p>
+            <p class="pv-q">What good thing happened this month?</p>
+            <p class="read"><span class="dropcap">T</span>he balcony garden produced its first tomato. Singular.</p>
+            <div class="ledger"><b>Collecting answers</b><span>3 of 5 in · closes Sunday</span></div>
+            <div class="row"><span class="pill pill--peacock">Saved</span><span class="pill pill--sindoor">Late</span><button class="btn btn--rani" type="button">Publish</button></div>
+          </div>
+          <svg class="ikat" aria-hidden="true"><rect width="100%" height="100%" fill="url(#pv-ikat)"></rect></svg>
+        </div>
+      </div>
+      <pre class="css-out" id="loom-css"></pre>
+    </section>
+
+    <section id="motifs" class="card">
+      <p class="eyebrow">Chapter three</p>
+      <h2>Motifs</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <dl class="motifs">
+        <dt>Temple border</dt><dd><div class="temple"></div></dd>
+        <dt>Zari rule</dt><dd><div class="zari"></div></dd>
+        <dt>Ikat band</dt><dd><svg class="ikat" aria-hidden="true"><rect width="100%" height="100%" fill="url(#pl-ikat)"></rect></svg></dd>
+        <dt>Mango buti</dt><dd class="buti"><div class="mango"></div></dd>
+        <dt>Emblem</dt><dd><svg class="emblem-lg" viewBox="0 0 120 120" aria-hidden="true"><use href="#pl-emblem"></use></svg></dd>
+      </dl>
+      <h3>Readability</h3>
+      <p class="read small">Pairs checked for the current fabric by <code>node build.mjs --check</code>, with piecesoflife's own floors.</p>
+      <div class="table-wrap"><table class="contrast"><thead><tr><th>Text</th><th>On</th><th class="num">Ratio</th><th class="num">Min</th><th>Result</th></tr></thead><tbody id="contrast"></tbody></table></div>
+    </section>
+
+    <section id="use" class="card">
+      <p class="eyebrow">Chapter four</p>
+      <h2>Use</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+<pre class="snippet" id="snip">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/parithosh/design-language-collection@v1/dist/css/pallu.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/parithosh/design-language-collection@v1/assets/motifs/pallu/motifs.css"&gt;
+&lt;html data-fabric="coastal"&gt;  &lt;!-- optional: any fabric but Rani --&gt;</pre>
+      <button class="btn btn--outline" data-copy-from="#snip">Copy</button>
+    </section>
+  </main>
+  <div class="temple-up" aria-hidden="true"></div>
+
+  <script type="module">
+    import { loadJson, contrastRows, copyButtons } from "./site.js";
+    import { resolve } from "./lib/pallu.mjs";
+    copyButtons();
+
+    const [spec, contrast, sprite] = await Promise.all([
+      loadJson("tokens/pallu.json"),
+      loadJson("dist/json/contrast.json"),
+      fetch("assets/motifs/pallu/sprite.svg").then((r) => r.text()),
+    ]);
+    document.getElementById("sprite").innerHTML = sprite;
+    // The preview gets its own copy so its emblem and ikat resolve the preview's colours, not the page's.
+    document.getElementById("pv-sprite").innerHTML = sprite.replace(/id="pl-/g, 'id="pv-').replace(/#pl-/g, "#pv-");
+    const root = document.documentElement;
+
+    // ---- fabrics: dress the whole page via data-fabric ----
+    const list = document.getElementById("fabric-list");
+    list.innerHTML = spec.fabrics.map((f) => `
+      <label class="fabric"><input type="radio" name="fabric" value="${f.id}" ${f.id === "rani" ? "checked" : ""}>
+        <span class="fabric-sw" aria-hidden="true">${["main", "highlight", "second", "paper"].map((k) => `<span style="background:${f[k]}"></span>`).join("")}</span>
+        <span class="fabric-name">${f.name}</span><span class="fabric-vibe">${f.vibe}</span></label>`).join("");
+    function setFabric(id) {
+      root.removeAttribute("style");
+      if (id === "rani") delete root.dataset.fabric; else root.dataset.fabric = id;
+      contrastRows(document.getElementById("contrast"), contrast.pairs.filter((p) => p.theme === "pallu" && p.variant === id));
+    }
+    list.addEventListener("change", (e) => setFabric(e.target.value));
+
+    // ---- the loom ----
+    const state = { fabric: "rani", main: "", highlight: "", second: "" };
+    const sel = document.getElementById("loom-fabric");
+    sel.innerHTML = spec.fabrics.map((f) => `<option value="${f.id}">${f.name}</option>`).join("");
+    const preview = document.getElementById("preview");
+    let last;
+    function draw() {
+      last = resolve(spec, state);
+      for (const [n, v] of last.tokens) preview.style.setProperty(`--${n}`, v);
+      const fabric = spec.fabrics.find((f) => f.id === state.fabric);
+      for (const knob of ["main", "highlight", "second"]) {
+        const box = document.querySelector(`[data-knob="${knob}"]`);
+        box.querySelector("input").value = state[knob] || fabric[knob];
+        box.querySelector("[data-reset]").hidden = !state[knob];
+        const adj = last.adjustments.find((a) => a.knob === knob);
+        const note = box.querySelector(".adjusted");
+        note.hidden = !adj;
+        if (adj) note.textContent = `Adjusted ${adj.picked} to ${adj.used} so text on and against it stays readable.`;
+      }
+      document.getElementById("loom-css").textContent =
+        `:root {\n${last.tokens.map(([n, v]) => `  --${n}: ${v};`).join("\n")}\n}`;
+    }
+    sel.addEventListener("change", () => { Object.assign(state, { fabric: sel.value, main: "", highlight: "", second: "" }); draw(); });
+    for (const knob of ["main", "highlight", "second"]) {
+      document.getElementById(`knob-${knob}`).addEventListener("input", (e) => { state[knob] = e.target.value; draw(); });
+    }
+    document.querySelector(".loom-controls").addEventListener("click", (e) => {
+      const k = e.target.closest("[data-reset]")?.dataset.reset;
+      if (k) { state[k] = ""; draw(); }
+    });
+    document.getElementById("loom-copy").addEventListener("click", (e) => {
+      navigator.clipboard?.writeText(document.getElementById("loom-css").textContent).catch(() => {});
+      e.target.textContent = "Copied";
+      setTimeout(() => (e.target.textContent = "Copy CSS"), 1200);
+    });
+    document.getElementById("loom-apply").addEventListener("click", () => {
+      root.dataset.fabric = "custom";
+      for (const [n, v] of last.tokens) root.style.setProperty(`--${n}`, v);
+    });
+
+    const q = new URLSearchParams(location.search);
+    if (q.get("fabric")) { list.querySelector(`input[value="${q.get("fabric")}"]`)?.click(); }
+    if (q.get("loom")) { const [f, m, h, s] = q.get("loom").split(","); Object.assign(state, { fabric: f || "rani", main: m ? "#" + m : "", highlight: h ? "#" + h : "", second: s ? "#" + s : "" }); sel.value = state.fabric; }
+    setFabric(root.dataset.fabric || "rani");
+    draw();
+  </script>
+</body>
+</html>

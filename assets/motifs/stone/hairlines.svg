@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" vector-effect="non-scaling-stroke" aria-hidden="true">
+  <!-- Stone's one large motif: a ruled horizon that turns up at its end,
+       one circle, and one long diagonal. Hairlines only, in the ink colour. -->
+  <polyline points="80 160 1120 160 1120 64" vector-effect="non-scaling-stroke"/>
+  <circle cx="260" cy="420" r="112" vector-effect="non-scaling-stroke"/>
+  <line x1="700" y1="160" x2="980" y2="600" vector-effect="non-scaling-stroke"/>
+</svg>

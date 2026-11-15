@@ -1,0 +1,107 @@
+{
+  "$description": "Stone: ethlabs.org's structure and type with Verdigris's weathered-stone colours. Limestone is light, Slate is dark.",
+  "name": "Stone",
+  "modes": {
+    "light": {
+      "name": "Limestone",
+      "color": {
+        "bg": "#f2f3ed",
+        "surface": "#ebece6",
+        "sunken": "#e4e6e0",
+        "line": "#dcdfd7",
+        "line-strong": "#cdd0c7",
+        "fg": "#1f2422",
+        "fg-muted": "#606a66",
+        "brand": "#1f2422",
+        "on-brand": "#f2f3ed",
+        "accent": "#3e6c63",
+        "on-accent": "#f2f3ed",
+        "highlight": "#8a5530",
+        "signal": "#b8392c",
+        "selection": "#d5e0da",
+        "cursor": "#3e6c63",
+        "success": "#506a3a",
+        "warning": "#716029",
+        "info": "#446184"
+      },
+      "ansi": [
+        "#e9eae4", "#9b4742", "#506a3a", "#716029", "#446184", "#71567d", "#3e6b61", "#262d2a",
+        "#606a66", "#873834", "#415a2d", "#615117", "#364f75", "#60456e", "#2e5c52", "#202422"
+      ]
+    },
+    "dark": {
+      "name": "Slate",
+      "color": {
+        "bg": "#161918",
+        "surface": "#121514",
+        "sunken": "#0e1110",
+        "line": "#262b29",
+        "line-strong": "#343a38",
+        "fg": "#d0d5d1",
+        "fg-muted": "#828c88",
+        "brand": "#d0d5d1",
+        "on-brand": "#161918",
+        "accent": "#91bfb3",
+        "on-accent": "#161918",
+        "highlight": "#d6a07a",
+        "signal": "#f0806f",
+        "selection": "#2a3a36",
+        "cursor": "#91bfb3",
+        "success": "#a6bf93",
+        "warning": "#c7bd88",
+        "info": "#94b0d2"
+      },
+      "ansi": [
+        "#121514", "#d68f87", "#a6bf93", "#c7bd88", "#94b0d2", "#baa1c5", "#91bfb3", "#d0d5d1",
+        "#828c88", "#e8a19a", "#bacfa3", "#dad198", "#a6c1e5", "#cab3d7", "#a1d1c4", "#dbe0dc"
+      ]
+    }
+  },
+  "syntax": {
+    "$description": "Editor roles, each naming an ANSI slot (0-15) or a colour token, so both modes follow from the palettes above.",
+    "comment": "fg-muted",
+    "keyword": "ansi:6",
+    "string": "ansi:2",
+    "number": "highlight",
+    "constant": "ansi:5",
+    "type": "highlight",
+    "function": "ansi:4",
+    "property": "fg",
+    "variable": "fg",
+    "operator": "fg",
+    "punctuation": "fg-muted",
+    "tag": "ansi:1",
+    "attribute": "ansi:3",
+    "error": "signal"
+  },
+  "font": {
+    "display": "\"Outfit\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+    "body": "\"Outfit\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+    "ui": "\"Outfit\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+    "mono": "\"Commit Mono\", ui-monospace, SFMono-Regular, Menlo, monospace"
+  },
+  "fontFaces": [
+    { "family": "Outfit", "weight": 300, "style": "normal", "files": ["outfit-latin-ext-300-normal.woff2", "outfit-latin-300-normal.woff2"] },
+    { "family": "Outfit", "weight": 400, "style": "normal", "files": ["outfit-latin-ext-400-normal.woff2", "outfit-latin-400-normal.woff2"] },
+    { "family": "Outfit", "weight": 600, "style": "normal", "files": ["outfit-latin-ext-600-normal.woff2", "outfit-latin-600-normal.woff2"] },
+    { "family": "Outfit", "weight": 700, "style": "normal", "files": ["outfit-latin-ext-700-normal.woff2", "outfit-latin-700-normal.woff2"] },
+    { "family": "Commit Mono", "weight": 400, "style": "normal", "files": ["commit-mono-latin-400-normal.woff2"] },
+    { "family": "Commit Mono", "weight": 400, "style": "italic", "files": ["commit-mono-latin-400-italic.woff2"] },
+    { "family": "Commit Mono", "weight": 700, "style": "normal", "files": ["commit-mono-latin-700-normal.woff2"] },
+    { "family": "Commit Mono", "weight": 700, "style": "italic", "files": ["commit-mono-latin-700-italic.woff2"] }
+  ],
+  "radius": { "sm": "3px", "md": "6px", "lg": "10px" },
+  "shadow": { "float": "0 0 0 1px var(--line), 0 8px 24px -12px rgb(0 0 0 / 0.18)" },
+  "contrast": [
+    ["fg", "bg", 4.5], ["fg", "surface", 4.5], ["fg", "sunken", 4.5],
+    ["fg-muted", "bg", 4.5], ["fg-muted", "surface", 4.5],
+    ["accent", "bg", 4.5], ["accent", "surface", 4.5], ["on-accent", "accent", 4.5],
+    ["highlight", "bg", 4.5], ["highlight", "surface", 4.5],
+    ["signal", "bg", 4.5], ["signal", "surface", 4.5],
+    ["on-brand", "brand", 4.5],
+    ["success", "bg", 4.5], ["warning", "bg", 4.5], ["info", "bg", 4.5],
+    ["fg", "selection", 4.5],
+    ["ansi:1-6", "bg", 4.5], ["ansi:9-14", "bg", 4.5], ["ansi:1-6", "surface", 4.5], ["ansi:9-14", "surface", 4.5],
+    ["ansi:8", "bg", 4.5]
+  ]
+}

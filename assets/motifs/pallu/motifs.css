@@ -1,0 +1,71 @@
+/* Pallu motifs, lifted from piecesoflife static/pallu.css. Load after dist/css/pallu.css.
+ * Inline sprite.svg once per page for the emblem (<use href="#pl-emblem">) and the ikat band (fill="url(#pl-ikat)"). */
+
+/* 1 · temple / tent zari border — downward gold triangles on rani */
+.temple {
+    height: 26px;
+    background: var(--rani);
+    background-image:
+        linear-gradient(135deg, var(--marigold) 26%, transparent 26%),
+        linear-gradient(225deg, var(--marigold) 26%, transparent 26%);
+    background-size: 26px 26px;
+    background-position: 0 0;
+    border-bottom: 3px solid var(--zari);
+}
+
+.temple-up {
+    height: 26px;
+    background: var(--rani);
+    background-image:
+        linear-gradient(45deg, var(--marigold) 26%, transparent 26%),
+        linear-gradient(-45deg, var(--marigold) 26%, transparent 26%);
+    background-size: 26px 26px;
+    background-position: 0 100%;
+    border-top: 3px solid var(--zari);
+}
+
+/* 2 · zari gold-thread rule — thin woven divider */
+.zari {
+    height: 8px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--zari) 0 8px,
+        var(--marigold) 8px 12px,
+        var(--zari) 12px 20px
+    );
+    border-top: 1px solid var(--zari-deep);
+    border-bottom: 1px solid var(--zari-deep);
+}
+
+/* 3 · mango buti print — low-opacity allover overlay, never over text */
+.mango {
+    background-image: url("./mango.png");
+    background-size: 84px auto;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* any fabric but Rani (or a customised palette): tint the buti with the highlight */
+[data-themed] .mango,
+[data-fabric]:not([data-fabric="rani"]) .mango {
+    background-image: none;
+    background-color: var(--marigold);
+    -webkit-mask: url("./mango.png") 0 0 / 84px auto repeat;
+    mask: url("./mango.png") 0 0 / 84px auto repeat;
+}
+
+/* 4 · ikat pallu band — the Ramble/notebook chapter signature. An original
+ * slat-drawn SVG (star medallions, floret crosses, dot rows, sindoor
+ * diamonds) in Pallu tokens; tiles horizontally, works on ivory and rani. */
+.ikat {
+    display: block;
+    width: 100%;
+    height: 52px;
+}
+
+.ikat--mini {
+    width: 168px;
+    height: 26px;
+    margin: 0 auto;
+}
+
