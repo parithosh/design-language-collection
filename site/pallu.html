@@ -6,24 +6,26 @@
   <title>Pallu · design language</title>
   <link rel="stylesheet" href="dist/css/pallu.css">
   <link rel="stylesheet" href="assets/motifs/pallu/motifs.css">
+  <link rel="stylesheet" href="showcase.css">
   <link rel="stylesheet" href="pallu-site.css">
 </head>
 <body>
   <div id="sprite" aria-hidden="true"></div>
   <nav class="nav">
-    <a class="nav-brand" href="./"><svg class="nav-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#pl-emblem"></use></svg>Pallu</a>
+    <a class="nav-brand" href="pallu.html"><svg class="nav-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#pl-emblem"></use></svg>Pallu</a>
     <div class="nav-links">
       <a href="#fabrics" class="is-active">Fabrics</a>
       <a href="#loom">The Loom</a>
       <a href="#motifs">Motifs</a>
       <a href="#use">Use</a>
       <a href="stone.html">Stone</a>
+      <a href="./">Home</a>
     </div>
   </nav>
   <div class="temple" aria-hidden="true"></div>
 
   <header class="masthead">
-    <div class="mango" aria-hidden="true"></div>
+    <div class="mango masthead-bg" aria-hidden="true"></div>
     <svg class="masthead-emblem" viewBox="0 0 120 120" aria-hidden="true"><use href="#pl-emblem"></use></svg>
     <p class="eyebrow">Woven &amp; posted</p>
     <h1>Pallu</h1>
@@ -69,7 +71,7 @@
             <p class="adjusted" role="status" hidden></p>
           </div>
           <div class="row">
-            <button type="button" class="btn btn--rani" id="loom-copy">Copy CSS</button>
+            <button type="button" class="btn btn--primary" id="loom-copy">Copy CSS</button>
             <button type="button" class="btn btn--outline" id="loom-apply">Dress this page</button>
           </div>
         </form>
@@ -85,7 +87,7 @@
             <p class="pv-q">What good thing happened this month?</p>
             <p class="read"><span class="dropcap">T</span>he balcony garden produced its first tomato. Singular.</p>
             <div class="ledger"><b>Collecting answers</b><span>3 of 5 in · closes Sunday</span></div>
-            <div class="row"><span class="pill pill--peacock">Saved</span><span class="pill pill--sindoor">Late</span><button class="btn btn--rani" type="button">Publish</button></div>
+            <div class="row"><span class="pill pill--peacock">Saved</span><span class="pill pill--sindoor">Late</span><button class="btn btn--primary" type="button">Publish</button></div>
           </div>
           <svg class="ikat" aria-hidden="true"><rect width="100%" height="100%" fill="url(#pv-ikat)"></rect></svg>
         </div>
@@ -119,6 +121,10 @@
       <button class="btn btn--outline" data-copy-from="#snip">Copy</button>
     </section>
   </main>
+  <footer class="footer">
+    <p>Pallu comes from <a href="https://github.com/parithosh/piecesoflife">piecesoflife</a>, inspired by saree textiles.</p>
+    <p>© 2026 parithosh. Design licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT, fonts under the SIL Open Font License. <a href="https://github.com/parithosh/design-language-collection">Source</a></p>
+  </footer>
   <div class="temple-up" aria-hidden="true"></div>
 
   <script type="module">

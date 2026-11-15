@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 22
       - run: node build.mjs --check
-      - run: zip -r design-${{ github.ref_name }}.zip dist assets lib tokens principles LICENSE README.md
+      - run: zip -r design-${{ github.ref_name }}.zip dist assets lib tokens principles LICENSE LICENSE-CC-BY-4.0.txt README.md
       - run: gh release create "${{ github.ref_name }}" design-${{ github.ref_name }}.zip --generate-notes
         env:
           GH_TOKEN: ${{ github.token }}

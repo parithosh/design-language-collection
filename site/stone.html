@@ -5,83 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stone · design language</title>
   <link rel="stylesheet" href="dist/css/stone.css">
+  <link rel="stylesheet" href="showcase.css">
   <link rel="stylesheet" href="stone-site.css">
 </head>
 <body>
-  <header class="bar">
-    <a class="wordmark" href="./">Stone</a>
-    <nav class="caps">
-      <a href="#color">Colour</a>
-      <a href="#type">Type</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="st-mark" viewBox="0 0 120 120">
+      <rect width="120" height="120" rx="14" style="fill:var(--brand)"></rect>
+      <g fill="none" stroke-width="2.4" style="stroke:var(--on-brand)">
+        <polyline points="18 40 102 40 102 22"></polyline>
+        <circle cx="44" cy="78" r="22"></circle>
+        <line x1="70" y1="40" x2="96" y2="100"></line>
+      </g>
+    </symbol>
+  </svg>
+
+  <nav class="nav">
+    <a class="nav-brand" href="stone.html"><svg class="nav-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#st-mark"></use></svg>Stone</a>
+    <div class="nav-links">
+      <a href="#colour" class="is-active">Colour</a>
       <a href="#code">Code</a>
+      <a href="#type">Type</a>
       <a href="#use">Use</a>
       <a href="pallu.html">Pallu</a>
-    </nav>
+      <a href="./">Home</a>
+    </div>
+  </nav>
+  <div class="stone-band" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <svg class="masthead-bg hairlines" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" aria-hidden="true">
+      <polyline points="60 96 1140 96 1140 30" vector-effect="non-scaling-stroke"/>
+      <circle cx="220" cy="280" r="96" vector-effect="non-scaling-stroke"/>
+      <line x1="860" y1="96" x2="1060" y2="420" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <svg class="masthead-emblem" viewBox="0 0 120 120" aria-hidden="true"><use href="#st-mark"></use></svg>
+    <p class="eyebrow">Limestone &amp; Slate</p>
+    <h1>Stone</h1>
+    <p class="meta">Weathered stone and patinated copper · a calm theme for code and the web</p>
+    <div class="mode" role="group" aria-label="Mode">
+      <button data-mode-set="auto" aria-pressed="true">Auto</button>
+      <button data-mode-set="light" aria-pressed="false">Light</button>
+      <button data-mode-set="dark" aria-pressed="false">Dark</button>
+    </div>
   </header>
+  <div class="stone-rule" aria-hidden="true"></div>
 
-  <main>
-    <section class="hero">
-      <svg class="motif" viewBox="0 0 1200 640" fill="none" stroke="currentColor" aria-hidden="true">
-        <polyline points="80 160 1120 160 1120 64" vector-effect="non-scaling-stroke"/>
-        <circle cx="260" cy="420" r="112" vector-effect="non-scaling-stroke"/>
-        <line x1="700" y1="160" x2="980" y2="600" vector-effect="non-scaling-stroke"/>
-      </svg>
-      <div class="hero-text">
-        <p class="caps muted">Limestone and Slate</p>
-        <h1>Weathered stone, patinated copper, and a lot of quiet.</h1>
-        <p class="lede">A calm theme for code and the web: ethlabs.org's hairlines and tracked capitals with Verdigris's muted colours. One <span class="signal">signal red</span> per page.</p>
-        <div class="mode" role="group" aria-label="Mode">
-          <button data-mode-set="auto" aria-pressed="true">Auto</button>
-          <button data-mode-set="light" aria-pressed="false">Light</button>
-          <button data-mode-set="dark" aria-pressed="false">Dark</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="color">
-      <h2 class="caps">Colour</h2>
-      <p class="muted">Click a swatch to copy it. The values follow the mode above.</p>
+  <main class="page">
+    <section id="colour" class="card">
+      <p class="eyebrow">Chapter one</p>
+      <h2>Colour</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read"><span class="dropcap">M</span>ost of a page is ink on stone. Patina carries links and focus, copper marks types and numbers, and one signal red is kept for the single thing that must stand out. Click a swatch to copy it; the values follow the mode above.</p>
       <div class="swatches" id="sw-color"></div>
-      <h3 class="caps sub">Terminal</h3>
+      <h3>Terminal</h3>
       <div class="swatches ansi" id="sw-ansi"></div>
-      <h3 class="caps sub">Contrast</h3>
-      <p class="muted">Every pair <code>node build.mjs --check</code> verifies for this mode, against WCAG 2.</p>
-      <div class="table-wrap">
-        <table class="contrast"><thead><tr><th>Text</th><th>On</th><th class="num">Ratio</th><th class="num">Min</th><th>Result</th></tr></thead><tbody id="contrast"></tbody></table>
-      </div>
     </section>
 
-    <section id="type">
-      <h2 class="caps">Type</h2>
-      <div class="specimen">
-        <p class="spec-display">Outfit 600 for headings</p>
-        <p class="spec-body">Outfit 300 and 400 carry the body. Lines stay under 65 characters, with generous leading and space around every block.</p>
-        <p class="caps">Outfit 300, uppercase, tracked 0.1em, for navigation and labels</p>
-        <p class="spec-mono">Commit Mono for code, paths and terminals: 0O 1lI {}[] =&gt; !=</p>
-      </div>
-    </section>
-
-    <section id="components">
-      <h2 class="caps">Pieces</h2>
-      <div class="pieces">
-        <article class="piece">
-          <p class="caps muted">Note · 15 Nov 2026</p>
-          <h3>Hairlines instead of boxes</h3>
-          <p>Sections are separated by a rule, not a card. A surface is reserved for things that are objects: a window, a code pane, a menu. <a href="#use">Links are patina.</a></p>
-        </article>
-        <form class="piece form" onsubmit="return false">
-          <label>Email <input type="email" placeholder="you@example.com"></label>
-          <div class="row">
-            <button class="btn primary">Subscribe</button>
-            <button class="btn">Later</button>
-          </div>
-          <p class="hint"><span class="status ok">●</span> Saved <span class="status warn">●</span> Draft <span class="status err">●</span> Failed</p>
-        </form>
-      </div>
-    </section>
-
-    <section id="code">
-      <h2 class="caps">Code</h2>
+    <section id="code" class="card">
+      <p class="eyebrow">Chapter two</p>
+      <h2>Code</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read">The editor and terminal themes come from the same palette, so a Zed window, a Ghostty tab and this page all agree.</p>
       <div class="pane">
         <div class="pane-head"><span class="dots"><i></i><i></i><i></i></span><span>contrast.ts</span></div>
 <pre class="code"><span class="t-keyword">import</span> <span class="t-punctuation">{</span> z <span class="t-punctuation">}</span> <span class="t-keyword">from</span> <span class="t-string">"zod"</span><span class="t-punctuation">;</span>
@@ -98,7 +83,6 @@
 <pre><span class="a6">design</span> on <span class="a5">main</span> ❯ git status -sb
 <span class="a2">##</span> main...<span class="a1">origin/main</span> [ahead 1]
  <span class="a1">M</span> tokens/stone.json
-<span class="a2">A</span>  dist/ports/zed/stone.json
 
 <span class="a6">design</span> on <span class="a5">main</span> ❯ node build.mjs --check
 ok: generated files are current, contrast pairs pass
@@ -108,23 +92,48 @@ ok: generated files are current, contrast pairs pass
       </div>
     </section>
 
-    <section id="use">
-      <h2 class="caps">Use</h2>
-      <div class="use">
+    <section id="type" class="card">
+      <p class="eyebrow">Chapter three</p>
+      <h2>Type &amp; pieces</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <dl class="specimen">
+        <dt>Display</dt><dd class="spec-display">Outfit 600 for headings</dd>
+        <dt>Body</dt><dd class="spec-body">Outfit 300 and 400 carry the body, with lines under 65 characters and generous space around every block.</dd>
+        <dt>Labels</dt><dd class="spec-caps">Outfit 300, uppercase, tracked 0.1em</dd>
+        <dt>Code</dt><dd class="spec-mono">Commit Mono: 0O 1lI {}[] =&gt; !=</dd>
+      </dl>
+      <h3>Pieces</h3>
+      <div class="pieces">
+        <form class="form" onsubmit="return false">
+          <label>Email <input type="email" placeholder="you@example.com"></label>
+          <div class="row"><button class="btn btn--primary">Subscribe</button><button class="btn btn--outline">Later</button></div>
+        </form>
+        <div class="row"><span class="pill pill--accent">Saved</span><span class="pill pill--signal">Failed</span><span class="pill pill--quiet">Draft</span></div>
+      </div>
+      <h3>Readability</h3>
+      <p class="read small">Pairs checked for the current mode by <code>node build.mjs --check</code>, against WCAG 2.</p>
+      <div class="table-wrap"><table class="contrast"><thead><tr><th>Text</th><th>On</th><th class="num">Ratio</th><th class="num">Min</th><th>Result</th></tr></thead><tbody id="contrast"></tbody></table></div>
+    </section>
+
+    <section id="use" class="card">
+      <p class="eyebrow">Chapter four</p>
+      <h2>Use</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <div class="uses">
         <div>
           <h3>Web</h3>
 <pre class="snippet" id="snip-link">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/parithosh/design-language-collection@v1/dist/css/stone.css"&gt;</pre>
-          <button class="btn sm" data-copy-from="#snip-link">Copy</button>
+          <button class="btn btn--outline" data-copy-from="#snip-link">Copy</button>
         </div>
         <div>
           <h3>Tailwind v4</h3>
 <pre class="snippet" id="snip-tw">@import "tailwindcss";
 @import "@parithosh/design/tailwind/stone.css";</pre>
-          <button class="btn sm" data-copy-from="#snip-tw">Copy</button>
+          <button class="btn btn--outline" data-copy-from="#snip-tw">Copy</button>
         </div>
         <div>
-          <h3>Editors and terminals</h3>
-          <ul class="ports">
+          <h3>Editors &amp; terminals</h3>
+          <ul>
             <li><a href="dist/ports/ghostty/stone-light">Ghostty light</a> · <a href="dist/ports/ghostty/stone-dark">dark</a></li>
             <li><a href="dist/ports/zed/stone.json">Zed</a></li>
             <li><a href="dist/ports/nvim/colors/stone.lua">Neovim</a></li>
@@ -135,9 +144,9 @@ ok: generated files are current, contrast pairs pass
     </section>
   </main>
 
-  <footer class="bar foot">
-    <span class="muted">Colours after <a href="https://x.com/mrkaran_">Verdigris by Karan Sharma</a>; structure after <a href="https://ethlabs.org">ethlabs.org</a>.</span>
-    <a class="caps" href="https://github.com/parithosh/design-language-collection">Source</a>
+  <footer class="footer">
+    <p>Stone's colours are inspired by <a href="https://x.com/mrkaran_">Verdigris by Karan Sharma (@mrkaran_)</a>. Its layout and type follow <a href="https://ethlabs.org">ethlabs.org</a>.</p>
+    <p>© 2026 parithosh. Design licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT, fonts under the SIL Open Font License. <a href="https://github.com/parithosh/design-language-collection">Source</a></p>
   </footer>
 
   <script type="module">

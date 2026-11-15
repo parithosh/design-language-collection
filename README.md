@@ -75,4 +75,17 @@ This gives you `bg-bg`, `text-fg`, `text-fg-muted`, `border-line`, `bg-accent`, 
 
 ## Credits
 
-Stone's colours started from Verdigris by Karan Sharma, sampled from screenshots he shared, and were adjusted so every text pair passes WCAG AA. Stone's layout grammar follows ethlabs.org. Pallu and its theme engine come from piecesoflife. Fonts are Outfit, Commit Mono, Marcellus, Newsreader, and Mukta, all under the SIL Open Font License (see `assets/fonts/licenses/`).
+- **Karan Sharma** ([@mrkaran_](https://x.com/mrkaran_)) made Verdigris, the calm "weathered stone and patinated copper" theme that inspired Stone's colours. Stone's palette started from screenshots he shared and was then adjusted so every text pair passes WCAG AA.
+- **[ethlabs.org](https://ethlabs.org)** inspired Stone's layout and type: Outfit, tracked uppercase labels, hairline rules, one large geometric motif, and a single signal red.
+- **Pallu** and its theme engine come from [piecesoflife](https://github.com/parithosh/piecesoflife).
+- **Fonts:** Outfit, Commit Mono, Marcellus, Newsreader and Mukta, each under the SIL Open Font License (see `assets/fonts/licenses/`).
+
+## License
+
+© 2026 parithosh.
+
+- **Design** (tokens, principles, motifs, generated themes, and the showcase pages): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Use and adapt it freely, including commercially, as long as you credit parithosh and link back to this repo.
+- **Code** (`build.mjs`, `lib/`, site scripts, workflows): MIT.
+- **Fonts:** their own OFL licenses.
+
+See [LICENSE](LICENSE) and [LICENSE-CC-BY-4.0.txt](LICENSE-CC-BY-4.0.txt).

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "parithosh's design language: Stone and Pallu themes, generated from one set of tokens.",
   "type": "module",
-  "license": "MIT",
+  "license": "(MIT AND CC-BY-4.0)",
   "repository": "github:parithosh/design-language-collection",
   "engines": { "node": ">=20" },
   "scripts": {
@@ -22,5 +22,5 @@
     "./tokens/*": "./tokens/*",
     "./assets/*": "./assets/*"
   },
-  "files": ["dist", "assets", "lib", "tokens", "principles"]
+  "files": ["dist", "assets", "lib", "tokens", "principles", "LICENSE", "LICENSE-CC-BY-4.0.txt"]
 }
