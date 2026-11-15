@@ -24,7 +24,10 @@
     <a class="nav-brand" href="stone.html"><svg class="nav-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#st-mark"></use></svg>Stone</a>
     <div class="nav-links">
       <a href="#colour" class="is-active">Colour</a>
-      <a href="#code">Code</a>
+      <a href="#in-use">In use</a>
+      <a href="#code">Editor</a>
+      <a href="#charts">Charts</a>
+      <a href="#motifs">Motifs</a>
       <a href="#type">Type</a>
       <a href="#use">Use</a>
       <a href="pallu.html">Pallu</a>
@@ -62,38 +65,103 @@
       <div class="swatches ansi" id="sw-ansi"></div>
     </section>
 
-    <section id="code" class="card">
+    <section id="in-use" class="card">
       <p class="eyebrow">Chapter two</p>
-      <h2>Code</h2>
+      <h2>On a page</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
-      <p class="read">The editor and terminal themes come from the same palette, so a Zed window, a Ghostty tab and this page all agree.</p>
-      <div class="pane">
-        <div class="pane-head"><span class="dots"><i></i><i></i><i></i></span><span>contrast.ts</span></div>
-<pre class="code"><span class="t-keyword">import</span> <span class="t-punctuation">{</span> z <span class="t-punctuation">}</span> <span class="t-keyword">from</span> <span class="t-string">"zod"</span><span class="t-punctuation">;</span>
-
-<span class="t-comment">/** Relative luminance of an sRGB colour, per WCAG 2. */</span>
-<span class="t-keyword">export function</span> <span class="t-function">luminance</span><span class="t-punctuation">(</span>hex<span class="t-punctuation">:</span> <span class="t-type">string</span><span class="t-punctuation">):</span> <span class="t-type">number</span> <span class="t-punctuation">{</span>
-  <span class="t-keyword">const</span> <span class="t-punctuation">[</span>r<span class="t-punctuation">,</span> g<span class="t-punctuation">,</span> b<span class="t-punctuation">]</span> = <span class="t-punctuation">[</span><span class="t-number">1</span><span class="t-punctuation">,</span> <span class="t-number">3</span><span class="t-punctuation">,</span> <span class="t-number">5</span><span class="t-punctuation">].</span><span class="t-function">map</span><span class="t-punctuation">((</span>i<span class="t-punctuation">)</span> =&gt; <span class="t-punctuation">{</span>
-    <span class="t-keyword">const</span> c = <span class="t-function">parseInt</span><span class="t-punctuation">(</span>hex<span class="t-punctuation">.</span><span class="t-function">slice</span><span class="t-punctuation">(</span>i<span class="t-punctuation">,</span> i + <span class="t-number">2</span><span class="t-punctuation">),</span> <span class="t-number">16</span><span class="t-punctuation">)</span> / <span class="t-number">255</span><span class="t-punctuation">;</span>
-    <span class="t-keyword">return</span> c &lt;= <span class="t-number">0.03928</span> ? c / <span class="t-number">12.92</span> : <span class="t-punctuation">((</span>c + <span class="t-number">0.055</span><span class="t-punctuation">)</span> / <span class="t-number">1.055</span><span class="t-punctuation">)</span> ** <span class="t-number">2.4</span><span class="t-punctuation">;</span>
-  <span class="t-punctuation">});</span>
-  <span class="t-keyword">return</span> <span class="t-number">0.2126</span> * r + <span class="t-number">0.7152</span> * g + <span class="t-number">0.0722</span> * b<span class="t-punctuation">;</span>
-<span class="t-punctuation">}</span></pre>
-        <div class="term">
-<pre><span class="a6">design</span> on <span class="a5">main</span> ❯ git status -sb
-<span class="a2">##</span> main...<span class="a1">origin/main</span> [ahead 1]
- <span class="a1">M</span> tokens/stone.json
-
-<span class="a6">design</span> on <span class="a5">main</span> ❯ node build.mjs --check
-ok: generated files are current, contrast pairs pass
-
-<span class="a6">design</span> on <span class="a5">main</span> ❯ <span class="cursor"> </span></pre>
-        </div>
+      <div class="pair" data-pair>
+        <figure>
+          <div class="mock ms" data-mode="light">
+            <svg class="ms-art" viewBox="0 0 200 200" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="110" cy="120" r="64" vector-effect="non-scaling-stroke"/><line x1="20" y1="0" x2="160" y2="200" vector-effect="non-scaling-stroke"/></svg>
+            <div class="ms-bar"><span class="ms-wm">Field notes</span><span class="ms-nav"><span>Notes</span><span>Work</span><span>About</span></span></div>
+            <p class="ms-tag">Essay · 12 Nov 2026</p>
+            <h4>Slow tools for fast work</h4>
+            <p class="ms-p">Fewer colours, more space. <a href="#in-use">Links are patina</a>, and one thing per page gets the red.</p>
+            <span class="ms-cta">Subscribe</span>
+            <ul class="ms-list">
+              <li><span>Hairlines over boxes</span><time>09 Nov</time></li>
+              <li><span>A palette you can check</span><time>02 Nov</time></li>
+              <li><span>On copper and patina</span><time>27 Oct</time></li>
+            </ul>
+          </div>
+          <figcaption>Limestone</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section id="type" class="card">
+    <section id="code" class="card">
       <p class="eyebrow">Chapter three</p>
+      <h2>In the editor</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <div class="pair" data-pair>
+        <figure>
+          <div class="mock ed" data-mode="light">
+            <div class="ed-title"><span class="dots"><i></i><i></i><i></i></span><span>contrast.ts</span><span></span></div>
+            <div class="ed-body">
+              <div class="ed-side">
+                <p class="ed-root">STONE</p>
+                <p>⌄ src</p>
+                <p class="on">contrast.ts <b class="m">M</b></p>
+                <p>palette.ts</p>
+                <p>ports.ts <b class="u">U</b></p>
+                <p>› test</p>
+                <p>package.json</p>
+                <p>README.md</p>
+              </div>
+              <div class="ed-main">
+                <div class="ed-tabs"><span class="on">contrast.ts</span><span>palette.ts</span></div>
+<pre class="ed-code"><i>1</i><span class="t-keyword">import</span> <span class="t-punctuation">{</span> z <span class="t-punctuation">}</span> <span class="t-keyword">from</span> <span class="t-string">"zod"</span><span class="t-punctuation">;</span>
+<i>2</i>
+<i>3</i><span class="t-keyword">export const</span> Theme = z<span class="t-punctuation">.</span><span class="t-function">object</span><span class="t-punctuation">({</span>
+<i>4</i>  name<span class="t-punctuation">:</span> z<span class="t-punctuation">.</span><span class="t-function">string</span><span class="t-punctuation">(),</span>
+<i>5</i>  mode<span class="t-punctuation">:</span> z<span class="t-punctuation">.</span><span class="t-function">enum</span><span class="t-punctuation">([</span><span class="t-string">"light"</span><span class="t-punctuation">,</span> <span class="t-string">"dark"</span><span class="t-punctuation">]),</span>
+<i>6</i><span class="t-punctuation">});</span>
+<i>7</i>
+<i>8</i><span class="t-comment">// WCAG 2 relative luminance</span>
+<i>9</i><span class="t-keyword">export function</span> <span class="t-function">lum</span><span class="t-punctuation">(</span>hex<span class="t-punctuation">:</span> <span class="t-type">string</span><span class="t-punctuation">)</span> <span class="t-punctuation">{</span>
+<span class="cur"><i>10</i>  <span class="t-keyword">const</span> n = <span class="t-function">parseInt</span><span class="t-punctuation">(</span>hex<span class="t-punctuation">,</span> <span class="t-number">16</span><span class="t-punctuation">);</span></span>
+<i>11</i>  <span class="t-keyword">return</span> <span class="t-number">0.2126</span> * <span class="t-function">r</span><span class="t-punctuation">(</span>n<span class="t-punctuation">);</span>
+<i>12</i><span class="t-punctuation">}</span></pre>
+<pre class="ed-term"><span class="a6">design</span> on <span class="a5">main</span> ❯ node build.mjs --check
+ok: 186 contrast pairs pass
+<span class="a6">design</span> on <span class="a5">main</span> ❯ <span class="cursor"> </span></pre>
+              </div>
+            </div>
+            <div class="ed-status"><span><b>main</b> · 0 errors · 1 warning</span><span>Ln 10 · UTF-8 · TypeScript</span></div>
+          </div>
+          <figcaption>Limestone</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="charts" class="card">
+      <p class="eyebrow">Chapter four</p>
+      <h2>Charts &amp; tables</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read">Patina leads, copper and blue follow, and red only marks what went wrong.</p>
+      <div class="pair pair--wide" data-pair>
+        <figure>
+          <div class="mock dash" data-mode="light"></div>
+          <figcaption>Limestone</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="motifs" class="card">
+      <p class="eyebrow">Chapter five</p>
+      <h2>Motifs</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <dl class="motifs">
+        <dt>Mark</dt><dd><svg class="motif-mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#st-mark"></use></svg></dd>
+        <dt>Horizon</dt><dd><svg class="motif-line" viewBox="0 0 600 60" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true"><polyline points="0 50 590 50 590 6" vector-effect="non-scaling-stroke"/></svg></dd>
+        <dt>Circle &amp; diagonal</dt><dd><svg class="motif-geo" viewBox="0 0 600 140" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="90" cy="70" r="60" vector-effect="non-scaling-stroke"/><line x1="300" y1="0" x2="420" y2="140" vector-effect="non-scaling-stroke"/></svg></dd>
+        <dt>Rule</dt><dd><div class="motif-rule"></div></dd>
+        <dt>Signal</dt><dd class="motif-signal">Everything stays quiet except <span>one thing</span>.</dd>
+      </dl>
+    </section>
+
+    <section id="type" class="card">
+      <p class="eyebrow">Chapter six</p>
       <h2>Type &amp; pieces</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
       <dl class="specimen">
@@ -116,7 +184,7 @@ ok: generated files are current, contrast pairs pass
     </section>
 
     <section id="use" class="card">
-      <p class="eyebrow">Chapter four</p>
+      <p class="eyebrow">Chapter seven</p>
       <h2>Use</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
       <div class="uses">
@@ -150,8 +218,16 @@ ok: generated files are current, contrast pairs pass
   </footer>
 
   <script type="module">
-    import { loadJson, swatches, contrastRows, copyButtons } from "./site.js";
+    import { loadJson, swatches, contrastRows, copyButtons, dashboards } from "./site.js";
     copyButtons();
+    // Each preview is written once in Limestone; a copy shows it in Slate.
+    for (const pair of document.querySelectorAll("[data-pair]")) {
+      const dark = pair.firstElementChild.cloneNode(true);
+      dark.querySelector(".mock").dataset.mode = "dark";
+      dark.querySelector("figcaption").textContent = "Slate";
+      pair.append(dark);
+    }
+    dashboards();
     const [stone, contrast] = await Promise.all([loadJson("dist/json/stone.json"), loadJson("dist/json/contrast.json")]);
     const root = document.documentElement;
     const current = () => root.dataset.mode || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");

@@ -72,3 +72,13 @@ body {
 .motifs .buti .mango { position: absolute; inset: 0; }
 .emblem-lg { width: 96px; height: 96px; display: block; }
 @media (max-width: 560px) { .motifs { grid-template-columns: 1fr; gap: 6px; } .motifs dd { margin-bottom: 14px; } }
+
+/* dashboard colours, resolved per fabric */
+.dash { --chart-1: var(--rani); --chart-2: var(--peacock); --chart-3: var(--zari); --chart-4: var(--sindoor); --chart-5: var(--stone); --up: var(--peacock); --down: var(--sindoor); --line: var(--line-2); --line-strong: var(--line); --radius-md: var(--pl-radius); --radius-sm: var(--pl-radius-chip); --fg-muted: var(--ink-soft); }
+.dash-wrap { border: 1.5px solid var(--rani); border-radius: var(--pl-radius); box-shadow: var(--pl-shadow); background: var(--strip); overflow: hidden; }
+.dash-h { font-weight: 700; letter-spacing: 0.16em; color: var(--peacock); }
+.dash-big { color: var(--rani); }
+.dash-table th { color: var(--ink-soft); }
+.dash-status--ok { color: #fff; background: var(--peacock); }
+.dash-status--quiet { color: #fff; background: var(--ink-soft); }
+.dash-status--bad { color: #fff; background: var(--sindoor); }

@@ -16,6 +16,7 @@
     <div class="nav-links">
       <a href="#fabrics" class="is-active">Fabrics</a>
       <a href="#loom">The Loom</a>
+      <a href="#charts">Charts</a>
       <a href="#motifs">Motifs</a>
       <a href="#use">Use</a>
       <a href="stone.html">Stone</a>
@@ -95,8 +96,16 @@
       <pre class="css-out" id="loom-css"></pre>
     </section>
 
-    <section id="motifs" class="card">
+    <section id="charts" class="card">
       <p class="eyebrow">Chapter three</p>
+      <h2>Charts &amp; tables</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read">Rani leads, peacock and zari follow, and sindoor marks what fell. Pick another fabric above to re-dye it.</p>
+      <div class="dash-wrap"><div class="dash"></div></div>
+    </section>
+
+    <section id="motifs" class="card">
+      <p class="eyebrow">Chapter four</p>
       <h2>Motifs</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
       <dl class="motifs">
@@ -112,7 +121,7 @@
     </section>
 
     <section id="use" class="card">
-      <p class="eyebrow">Chapter four</p>
+      <p class="eyebrow">Chapter five</p>
       <h2>Use</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
 <pre class="snippet" id="snip">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/parithosh/design-language-collection@v1/dist/css/pallu.css"&gt;
@@ -128,9 +137,10 @@
   <div class="temple-up" aria-hidden="true"></div>
 
   <script type="module">
-    import { loadJson, contrastRows, copyButtons } from "./site.js";
+    import { loadJson, contrastRows, copyButtons, dashboards } from "./site.js";
     import { resolve } from "./lib/pallu.mjs";
     copyButtons();
+    dashboards();
 
     const [spec, contrast, sprite] = await Promise.all([
       loadJson("tokens/pallu.json"),

@@ -122,3 +122,28 @@ table.contrast { border-collapse: collapse; width: 100%; font: 400 14px/1.4 var(
 }
 .footer p { margin: 0; }
 .footer a { color: inherit; }
+
+/* ---- dashboard preview (charts and a table) ----
+ * Each theme sets --chart-1..5, --up and --down on .dash so they resolve per mode or fabric. */
+.dash { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; padding: 14px; font-family: var(--font-ui); color: var(--fg); }
+@media (max-width: 760px) { .dash { grid-template-columns: minmax(0, 1fr); } }
+.dash-panel { min-width: 0; padding: 14px 16px; background: var(--sc-card, var(--bg)); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.dash-panel.dash-wide:last-of-type { grid-column: 1 / -1; }
+.dash-h { margin: 0 0 4px; font: 600 12px/1.3 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-muted); }
+.dash-big { margin: 0 0 6px; font: 400 26px/1.1 var(--font-display); }
+.dash-big span { font: 600 13px var(--font-ui); }
+.dash-up { color: var(--up); } .dash-down { color: var(--down); }
+.dash-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.dash-svg text { font: 10px var(--font-ui); fill: var(--fg-muted); }
+.dash-svg .dash-end { font-weight: 600; }
+.dash-grid { stroke: var(--line); stroke-width: 1; }
+.dash-bars { display: grid; grid-template-columns: auto 1fr auto; gap: 10px 10px; align-items: center; margin-top: 10px; font-size: 13px; }
+.dash-bar-track { height: 12px; }
+.dash-bar { display: block; height: 100%; border-radius: 2px; }
+.dash-num, .dash-table .num { font-variant-numeric: tabular-nums; text-align: right; }
+.dash-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.dash-table th { text-align: left; font-weight: 600; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-muted); padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line-strong); }
+.dash-table td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.dash-spark { width: 60px; height: 18px; display: block; }
+.dash-status { display: inline-block; font: 600 11px/1 var(--font-ui); padding: 4px 8px; border-radius: var(--radius-sm); }
+.dash-note { grid-column: 1 / -1; margin: 0; font-size: 11px; color: var(--fg-muted); text-align: right; }
