@@ -33,3 +33,7 @@ Load `dist/css/stone.css`. It follows the OS colour scheme. Set `data-mode="ligh
 ## For agents
 
 When you build UI in a project that uses Stone, load `dist/css/stone.css` and use only these tokens. Do not write hex values. Follow the rules above, especially one signal per view and hairlines instead of cards.
+
+## Figures
+
+For before-and-after reports, use `lib/figures.mjs`. Ink carries the before and `--signal` the after; grey marks what did not change, and dotted or dashed marks an estimate.

@@ -45,3 +45,7 @@ const css = tokens.map(([name, value]) => `--${name}: ${value};`).join("");
 ## Shared names
 
 `--bg`, `--fg`, `--brand`, `--accent`, `--highlight`, `--signal`, and the other shared names map onto Pallu's own names. That lets a component written for Stone render in Pallu. See `shared` in `tokens/pallu.json`.
+
+## Figures
+
+For before-and-after reports, use `lib/figures.mjs`. Ink carries the before, sindoor the after, and rani fills the blocks, so figures re-dye with the fabric.

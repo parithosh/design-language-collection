@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stone · design language</title>
   <link rel="stylesheet" href="dist/css/stone.css">
+  <link rel="stylesheet" href="assets/figures/figures.css">
   <link rel="stylesheet" href="showcase.css">
   <link rel="stylesheet" href="stone-site.css">
 </head>
@@ -27,6 +28,7 @@
       <a href="#in-use">In use</a>
       <a href="#code">Editor</a>
       <a href="#charts">Charts</a>
+      <a href="#figures">Figures</a>
       <a href="#motifs">Motifs</a>
       <a href="#type">Type</a>
       <a href="#use">Use</a>
@@ -147,8 +149,16 @@ ok: 186 contrast pairs pass
       </div>
     </section>
 
-    <section id="motifs" class="card">
+    <section id="figures" class="card">
       <p class="eyebrow">Chapter five</p>
+      <h2>Figures</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read">Report figures for before-and-after stories. Ink carries the before, signal red the after. Switch the mode above to see them in Slate.</p>
+      <div data-figures></div>
+    </section>
+
+    <section id="motifs" class="card">
+      <p class="eyebrow">Chapter six</p>
       <h2>Motifs</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
       <dl class="motifs">
@@ -161,7 +171,7 @@ ok: 186 contrast pairs pass
     </section>
 
     <section id="type" class="card">
-      <p class="eyebrow">Chapter six</p>
+      <p class="eyebrow">Chapter seven</p>
       <h2>Type &amp; pieces</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
       <dl class="specimen">
@@ -184,7 +194,7 @@ ok: 186 contrast pairs pass
     </section>
 
     <section id="use" class="card">
-      <p class="eyebrow">Chapter seven</p>
+      <p class="eyebrow">Chapter eight</p>
       <h2>Use</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
       <div class="uses">
@@ -218,7 +228,7 @@ ok: 186 contrast pairs pass
   </footer>
 
   <script type="module">
-    import { loadJson, swatches, contrastRows, copyButtons, dashboards } from "./site.js";
+    import { loadJson, swatches, contrastRows, copyButtons, dashboards, figures } from "./site.js";
     copyButtons();
     // Each preview is written once in Limestone; a copy shows it in Slate.
     for (const pair of document.querySelectorAll("[data-pair]")) {
@@ -228,6 +238,7 @@ ok: 186 contrast pairs pass
       pair.append(dark);
     }
     dashboards();
+    figures(document.querySelector("[data-figures]"));
     const [stone, contrast] = await Promise.all([loadJson("dist/json/stone.json"), loadJson("dist/json/contrast.json")]);
     const root = document.documentElement;
     const current = () => root.dataset.mode || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");

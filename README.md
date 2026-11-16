@@ -71,6 +71,13 @@ This gives you `bg-bg`, `text-fg`, `text-fg-muted`, `border-line`, `bg-accent`, 
 | Neovim | Add `dist/ports/nvim` to your runtimepath (for example with lazy.nvim's `dir =`), then run `:colorscheme stone`. It follows `background`. |
 | VS Code | Copy or symlink `dist/ports/vscode` into `~/.vscode/extensions/parithosh.stone-theme`, restart, then pick Stone Limestone or Stone Slate |
 
+**Report figures:** `lib/figures.mjs` (with `assets/figures/figures.css`) draws six editorial figures for before-and-after stories: `hero`, `slope`, `frequency`, `lollipop`, `partition` and `scatter`. Each one takes an element and plain data, and draws in the current theme's colours, so it follows Stone's mode or Pallu's fabric. The showcase pages have an example of each.
+
+```js
+import { slope } from "@parithosh/design/figures";
+slope(document.querySelector("#fig"), { ticks: [{ value: 1, label: "1 s" }, { value: 60, label: "1 min" }], rows: [{ label: "Build", before: 50, after: 20 }] });
+```
+
 **Coding agents:** point the project's `AGENTS.md` at `principles/stone.md` or `principles/pallu.md`.
 
 ## Credits

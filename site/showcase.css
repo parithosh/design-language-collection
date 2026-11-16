@@ -147,3 +147,5 @@ table.contrast { border-collapse: collapse; width: 100%; font: 400 14px/1.4 var(
 .dash-spark { width: 60px; height: 18px; display: block; }
 .dash-status { display: inline-block; font: 600 11px/1 var(--font-ui); padding: 4px 8px; border-radius: var(--radius-sm); }
 .dash-note { grid-column: 1 / -1; margin: 0; font-size: 11px; color: var(--fg-muted); text-align: right; }
+.fig-gap { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+[data-figures] { margin-top: 8px; }

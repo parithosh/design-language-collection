@@ -82,3 +82,4 @@ body {
 .dash-status--ok { color: #fff; background: var(--peacock); }
 .dash-status--quiet { color: #fff; background: var(--ink-soft); }
 .dash-status--bad { color: #fff; background: var(--sindoor); }
+.fig { --fig-title-weight: 400; --fig-grid: var(--line-2); --fig-soft: var(--track); }

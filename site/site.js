@@ -105,3 +105,95 @@ export function dashboards(root = document) {
       <p class="dash-note">Example data</p>`;
   }
 }
+
+// ---- editorial figures: lib/figures.mjs with placeholder data ----
+import * as fig from "../lib/figures.mjs";
+
+const t = (s) => (s < 60 ? `${+s.toFixed(s < 1 ? 2 : 1)} s` : s < 3600 ? `${+(s / 60).toFixed(1)} min` : `${+(s / 3600).toFixed(1)} h`);
+const ITEMS = ["Item A", "Item B", "Item C", "Item D", "Item E", "Item F", "Item G", "Item H"];
+
+/** Fill a [data-figures] element with every figure, using abstract example data. */
+export function figures(root) {
+  root.innerHTML = `
+    <div class="fig fig-scroll" data-f="hero"></div>
+    <div class="fig-cap fig"><h4>Fig. 1 — Hero</h4><p>One headline number as nested semicircles hanging from the rule, a second one ringed, and the changes that got there along a diagonal.</p></div>
+    <hr class="fig-gap">
+    <div class="fig fig-scroll" data-f="slope"></div>
+    <div class="fig-cap fig"><h4>Fig. 2 — Every measure</h4><p>Before on the left, after on the right, on a log scale so seconds and days share one axis. Dotted means estimated; grey means unchanged.</p></div>
+    <hr class="fig-gap">
+    <div class="fig fig-scroll" data-f="frequency"></div>
+    <div class="fig-cap fig"><h4>Fig. 3 — By how often it happens</h4><p>The outer circle is before and the filled circle is after, by area. A dashed circle is an estimate.</p></div>
+    <hr class="fig-gap">
+    <div class="fig-split fig">
+      <div><div data-f="lollipop"></div><div class="fig-cap" style="grid-template-columns:1fr"><h4>Fig. 4 — Per item</h4><p>Hollow is before, filled is after, labelled with the change.</p></div></div>
+      <ol class="fig-notes"><h4>For the next person</h4>
+        <li>Lead with the result in one sentence, then the number that proves it.</li>
+        <li>Say what changed and what did not, so nobody has to ask.</li>
+        <li>Name the command to rerun it, such as <code>node build.mjs --check</code>.</li>
+        <li>Mark estimates as estimates, in the chart and in the text.</li>
+      </ol>
+    </div>
+    <hr class="fig-gap">
+    <div class="fig fig-scroll" data-f="partition"></div>
+    <div class="fig-cap fig"><h4>Fig. 5 — Where it came from</h4><p>Read it top to bottom: the whole, then split by cause, then by item. Width is the amount.</p></div>
+    <hr class="fig-gap">
+    <div class="fig fig-scroll" data-f="scatter"></div>
+    <div class="fig-cap fig"><h4>Fig. 6 — Each item, before against after</h4><p>Points below the diagonal got faster; the dashed guides mark 2×, 5×, 10× and 50×. Ringed items were targeted directly.</p></div>
+    <p class="dash-note">Example data</p>`;
+  const at = (k) => root.querySelector(`[data-f="${k}"]`);
+  fig.hero(at("hero"), {
+    title: "Faster, lighter", meta: "A project · 24 changes · one week", unit: "s",
+    big: { before: 1400, after: 430, label: "The headline measure" },
+    small: { before: 44, after: 36, label: "A second measure" },
+    list: ["#01 Shared cache", "#02 Scheduler", "#03 Fewer passes", "#04 Shared tables", "#05 Lazy loading", "#06 Smaller imports", "#07 Batching", "#08 Index tables", "#09 Shorter chains", "#10 Reuse", "#11 Cleanup", "#12 Cleanup, again"],
+    last: "0 regressions",
+  });
+  fig.slope(at("slope"), {
+    format: t,
+    ticks: [{ value: 0.4, label: "" }, { value: 1, label: "1 s" }, { value: 10, label: "10 s" }, { value: 60, label: "1 min" }, { value: 600, label: "10 min" }, { value: 3600, label: "1 h" }, { value: 36000, label: "10 h" }, { value: 172800, label: "2 days" }],
+    rows: [
+      { label: "Measure A, total", before: 159000, after: 129000 },
+      { label: "Measure B, wall clock", before: 47500, after: 21600, estimate: true },
+      { label: "Measure C, summed", before: 23400, after: 11900 },
+      { label: "Measure D", before: 4540, after: 1430 },
+      { label: "Measure E", before: 1370, after: 425 },
+      { label: "Measure F, worst case", before: 744, after: 37 },
+      { label: "Measure G", before: 51, after: 27 },
+      { label: "Measure H, typical", before: 3.2, after: 3.1 },
+      { label: "Measure I, typical", before: 0.53, after: 0.5 },
+    ],
+  });
+  fig.frequency(at("frequency"), {
+    from: "More often", to: "Less often", format: t,
+    items: [
+      { when: "Dozens of times a day", title: "Quick check", before: 51, after: 27, note: "in the worst case", sub: "typical: unchanged" },
+      { when: "A few times a day", title: "Single file", before: 744, after: 37, note: "in the worst case", sub: "typical: unchanged" },
+      { when: "Once a commit", title: "Dependents", before: 8640, after: 3960, note: "after a core edit", sub: "estimate, not timed", estimate: true },
+      { when: "Once a task", title: "Fresh setup", before: 4540, after: 1430, note: "to a working setup", sub: "16-core machine" },
+      { when: "Once a week", title: "Full build", before: 159000, after: 129000, note: "cold, total", sub: "32-core machine" },
+    ],
+  });
+  fig.lollipop(at("lollipop"), {
+    unit: "GB", max: 16, step: 4,
+    items: [[15.8, 12.5], [11.7, 6.2], [11.6, 6.5], [9.2, 5.5], [8.1, 0.4], [7.1, 4.3], [6.1, 4.3], [4.2, 2.9]].map(([before, after], i) => ({ label: ITEMS[i], before, after })),
+  });
+  fig.partition(at("partition"), {
+    brace: "6 groups · 76% of the total", total: "The whole amount saved",
+    groups: [
+      { label: "Shared change, mostly #04", parts: [["Item A", 9], 8, 6, 5, 4, 3, 2, 2, 1] },
+      { label: "#01", parts: [["Item C", 12], 5] },
+      { label: "#08", parts: [["Item D", 12]] },
+      { label: "#02", parts: [["Item E", 9]] },
+      { label: "#05", parts: [4, 3] },
+      { label: "#09", parts: [4] },
+    ],
+    rest: { label: "Everything else", value: 31 },
+  });
+  fig.scatter(at("scatter"), {
+    unit: "s", legend: ["Before", "After", "Targeted"],
+    items: [
+      [4195, 1963], [4045, 1670], [2827, 1329], [1972, 936], [2090, 819], [1637, 807], [1246, 726], [1093, 610],
+      [1695, 379, "#03"], [3764, 290, "#06"], [3913, 238, "#02"], [773, 169, "#03"], [2595, 76, "#05"], [1055, 14, "#07"],
+    ].map(([before, after, flag], i) => ({ label: `Item ${String(i + 1).padStart(2, "0")}`, before, after, flag })),
+  });
+}

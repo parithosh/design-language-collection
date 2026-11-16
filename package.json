@@ -19,6 +19,8 @@
     "./stone.json": "./dist/json/stone.json",
     "./pallu.json": "./dist/json/pallu.json",
     "./pallu-engine": "./lib/pallu.mjs",
+    "./figures": "./lib/figures.mjs",
+    "./figures.css": "./assets/figures/figures.css",
     "./tokens/*": "./tokens/*",
     "./assets/*": "./assets/*"
   },

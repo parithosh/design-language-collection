@@ -6,6 +6,7 @@
   <title>Pallu · design language</title>
   <link rel="stylesheet" href="dist/css/pallu.css">
   <link rel="stylesheet" href="assets/motifs/pallu/motifs.css">
+  <link rel="stylesheet" href="assets/figures/figures.css">
   <link rel="stylesheet" href="showcase.css">
   <link rel="stylesheet" href="pallu-site.css">
 </head>
@@ -17,6 +18,7 @@
       <a href="#fabrics" class="is-active">Fabrics</a>
       <a href="#loom">The Loom</a>
       <a href="#charts">Charts</a>
+      <a href="#figures">Figures</a>
       <a href="#motifs">Motifs</a>
       <a href="#use">Use</a>
       <a href="stone.html">Stone</a>
@@ -104,8 +106,16 @@
       <div class="dash-wrap"><div class="dash"></div></div>
     </section>
 
-    <section id="motifs" class="card">
+    <section id="figures" class="card">
       <p class="eyebrow">Chapter four</p>
+      <h2>Figures</h2>
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+      <p class="read">Report figures for before-and-after stories. Ink carries the before, sindoor the after, and rani the blocks. Pick another fabric to re-dye them.</p>
+      <div data-figures></div>
+    </section>
+
+    <section id="motifs" class="card">
+      <p class="eyebrow">Chapter five</p>
       <h2>Motifs</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
       <dl class="motifs">
@@ -121,7 +131,7 @@
     </section>
 
     <section id="use" class="card">
-      <p class="eyebrow">Chapter five</p>
+      <p class="eyebrow">Chapter six</p>
       <h2>Use</h2>
       <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
 <pre class="snippet" id="snip">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/parithosh/design-language-collection@v1/dist/css/pallu.css"&gt;
@@ -137,10 +147,11 @@
   <div class="temple-up" aria-hidden="true"></div>
 
   <script type="module">
-    import { loadJson, contrastRows, copyButtons, dashboards } from "./site.js";
+    import { loadJson, contrastRows, copyButtons, dashboards, figures } from "./site.js";
     import { resolve } from "./lib/pallu.mjs";
     copyButtons();
     dashboards();
+    figures(document.querySelector("[data-figures]"));
 
     const [spec, contrast, sprite] = await Promise.all([
       loadJson("tokens/pallu.json"),

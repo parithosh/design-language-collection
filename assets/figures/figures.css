@@ -1,0 +1,62 @@
+/* Editorial figures (lib/figures.mjs). Colours default to the family's shared tokens,
+ * so a figure follows Stone's mode or Pallu's fabric. Override the --fig-* slots per theme. */
+.fig {
+  --fig-ink: var(--fg);
+  --fig-hi: var(--signal);
+  --fig-muted: var(--fg-muted);
+  --fig-grid: var(--line);
+  --fig-block: var(--brand);
+  --fig-on-block: var(--on-brand);
+  --fig-soft: var(--sunken);
+  --fig-bg: var(--bg);
+  --fig-title-weight: 600;
+  color: var(--fig-ink);
+  font-family: var(--font-ui);
+}
+.fig svg { display: block; width: 100%; height: auto; overflow: visible; }
+.fig-scroll { overflow-x: auto; }
+.fig-scroll > svg, .fig-scroll > .fp { min-width: 640px; }
+
+.fig text { fill: var(--fig-ink); font-family: var(--font-ui); }
+.fig .t-title { font-family: var(--font-display); font-weight: var(--fig-title-weight); letter-spacing: -0.02em; }
+.fig .t-caps { letter-spacing: 0.14em; font-size: 12px; }
+.fig .t-b { font-weight: 600; }
+.fig .t-hi, .fig tspan.t-hi { fill: var(--fig-hi); }
+.fig .t-mu, .fig tspan.t-mu { fill: var(--fig-muted); }
+.fig .s-ink { stroke: var(--fig-ink); fill: none; stroke-width: 1.2; }
+.fig .s-hi { stroke: var(--fig-hi); fill: none; stroke-width: 1.6; }
+.fig .s-mu { stroke: var(--fig-muted); fill: none; }
+.fig .s-grid { stroke: var(--fig-grid); fill: none; stroke-width: 1; }
+.fig .f-ink { fill: var(--fig-ink); }
+.fig .f-hi { fill: var(--fig-hi); }
+.fig .f-mu { fill: var(--fig-muted); }
+.fig .f-bg { fill: var(--fig-bg); }
+.fig .dot { stroke-dasharray: 1.5 4; }
+.fig .dash { stroke-dasharray: 5 5; }
+
+/* partition (icicle) */
+.fp { display: grid; gap: 4px; font-size: 15px; }
+.fp-brace { position: relative; height: 34px; border-bottom: 1.2px solid var(--fig-ink); }
+.fp-brace::before, .fp-brace::after { content: ""; position: absolute; bottom: -6px; width: 1.2px; height: 12px; background: var(--fig-ink); }
+.fp-brace::before { left: 0; } .fp-brace::after { right: 0; }
+.fp-brace span { position: absolute; left: 0; bottom: 8px; font-size: 12px; letter-spacing: 0.14em; white-space: nowrap; }
+.fp-row { display: flex; gap: 2px; min-height: 50px; }
+.fp-row > * { flex-basis: 0; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 14px 12px; }
+.fp-total { display: block; background: var(--fig-hi); color: var(--fig-on-block); font-weight: 600; padding: 14px 16px; }
+.fp-g { background: var(--fig-block); color: var(--fig-on-block); }
+.fp-rest { background: transparent; color: var(--fig-muted); box-shadow: inset 0 0 0 1px var(--fig-grid); }
+.fp-sub { display: flex; gap: 2px; padding: 0 !important; }
+.fp-p { flex-basis: 0; min-width: 0; background: var(--fig-soft); padding: 14px 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+
+/* figure captions and a findings list */
+.fig-cap { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 12px 32px; margin-top: 20px; }
+.fig-cap h4 { margin: 0; font: 600 12px/1.6 var(--font-ui); letter-spacing: 0.14em; text-transform: uppercase; color: var(--fig-ink); }
+.fig-cap p { margin: 0; color: var(--fig-ink); font-size: 16px; }
+@media (max-width: 640px) { .fig-cap { grid-template-columns: 1fr; } }
+.fig-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+@media (max-width: 760px) { .fig-split { grid-template-columns: 1fr; } }
+.fig-notes { list-style: none; margin: 0; padding: 0; font-size: 16px; }
+.fig-notes h4 { margin: 0 0 12px; font: 400 12px/1 var(--font-ui); letter-spacing: 0.14em; text-transform: uppercase; color: var(--fig-muted); }
+.fig-notes li { padding: 14px 0; border-top: 1px solid var(--fig-grid); }
+.fig-notes li:last-child { border-bottom: 1px solid var(--fig-grid); }
+.fig-notes code { font-family: var(--font-mono); font-size: 0.88em; }
