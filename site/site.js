@@ -107,7 +107,7 @@ export function dashboards(root = document) {
 }
 
 // ---- editorial figures: lib/figures.mjs with placeholder data ----
-import * as fig from "../lib/figures.mjs";
+import * as fig from "./lib/figures.mjs";
 
 const t = (s) => (s < 60 ? `${+s.toFixed(s < 1 ? 2 : 1)} s` : s < 3600 ? `${+(s / 60).toFixed(1)} min` : `${+(s / 3600).toFixed(1)} h`);
 const ITEMS = ["Item A", "Item B", "Item C", "Item D", "Item E", "Item F", "Item G", "Item H"];
